@@ -41,6 +41,12 @@ func Expect(checker ConditionChecker) (err error) {
 	return
 }
 
+// ExpectPanic ...
+func ExpectPanic(checker ConditionChecker) {
+
+	checker(expectAssert)
+}
+
 func Assert(condition bool, msg string) {
 	if !condition {
 		panic(errors.Wrap(ErrAssert, msg))
